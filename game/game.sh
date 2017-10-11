@@ -1,6 +1,11 @@
 #!/bin/bash
 
 sed -n '
+    /go/ {
+        /south/ {
+            s/.*/south_hell/; h; b again;
+        }
+    }
    /^$/ {
         : again;
         g;
@@ -10,10 +15,5 @@ sed -n '
         : goprint;
         P;
         : nogoprint;
-    }
-    /go/ {
-        /south/ {
-            s/.*/south_hell/; h; b again;
-        }
     }
 '
